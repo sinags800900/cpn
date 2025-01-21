@@ -90,18 +90,21 @@ def error(update: Update, context: CallbackContext) -> None:
 
 # Main function
 def main() -> None:
-    updater = Updater("7291885432:AAGeSVC9j5QoYvrDR08FrwwKDuOr37k3MjU")
+    # Set up the Updater with your bot token
+    updater = Updater("7291885432:AAGeSVC9j5QoYvrDR08FrwwKDuOr37k3MjU", use_context=True)
 
     dispatcher = updater.dispatcher
 
+    # Add handlers
     dispatcher.add_handler(CommandHandler("start", start))
     dispatcher.add_handler(CallbackQueryHandler(button))
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_text))
     dispatcher.add_handler(MessageHandler(Filters.photo, handle_photo))
     dispatcher.add_error_handler(error)
 
-    updater.start_polling()
-    updater.idle()
+    # Start polling
+    updater.start_polling()  # This line starts the polling mechanism
+    updater.idle()  # Keep the bot running
 
 if __name__ == '__main__':
     main()

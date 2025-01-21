@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-ADMIN_CHAT_ID = "@Be_yoresrlf"  # Replace with your admin chat ID
+ADMIN_CHAT_ID = "1905981428"  # Replace with your admin chat ID
 
 # Start command
 def start(update: Update, context: CallbackContext) -> None:
